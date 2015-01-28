@@ -23,6 +23,6 @@
 | clear   | `Input.clear()`   | Clears the value on the input element.    |
 
 ---
-Built with care in New Orleans by Patrick Burtchaell
+Built with care in New Orleans by [Patrick Burtchaell](http://twitter.com/pburtchaell).
 
 Copyright 2014 Patrick Burtchaell. Licensed MIT.
