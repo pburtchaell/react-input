@@ -1,0 +1,29 @@
+{
+  "name": "react-input",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pburtchaell/react-input"
+  },
+  "keywords": [
+    "react",
+    "class",
+    "front end",
+    "ui"
+  ],
+  "author": "Patrick Burtchaell <patrick@pburtchaell.com> (http://pburtchaell.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pburtchaell/react-input/issues"
+  },
+  "homepage": "https://github.com/pburtchaell/react-input",
+  "dependencies": {
+    "react": "^0.12.2",
+    "react-classes": "^1.0.3"
+  }
+}
