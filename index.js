@@ -3,7 +3,7 @@ var classes = require('react-classes');
 
 var Input = React.createClass({
 
-  mixins: [React.addons.LinkedStateMixin, classes],
+  mixins: [classes],
 
   /**
    * @function focus
