@@ -1,64 +1,127 @@
 var React = require('react/addons');
+var classes = require('react-classes');
 
 var Input = React.createClass({
 
-  mixins: [React.addons.LinkedStateMixin],
+  mixins: [React.addons.LinkedStateMixin, classes],
 
+  /**
+   * @function focus
+   * @description Focus on the element.
+   */
+  focus: function () {
+    if (this.isMounted()) {
+      this.refs.input.getDOMNode().focus();
+    }
+  },
+
+  /**
+   * @function value
+   * @returns {string} The value of the input.
+   */
+  value: function () {
+    return this.state.value;
+  },
+
+  /**
+   * @function clear
+   * @description Clear the value of the element.
+   */
+  clear: function() {
+    this.setState({
+      value: ''
+    });
+  },
+
+  /**
+   * @private
+   * @function onChange
+   * @descriptin When the value of the input changes, update the state.
+   */
   _onChange: function (event) {
-    this.getValueLink(this.props).requestChange(event.target.value);
+
+    // Get the value from the input
+    var value = event.target.value;
+
+    // Set the state
+    this.setState({
+      value: value
+    }); 
+
+    // Run the onChange function if it exists
+    if (this.props.onChange) {
+      this.props.onChange(event, value);
+    }
+
   },
 
   propTypes: {
     label: React.PropTypes.string,
     type: React.PropTypes.string,
-    value: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    valueLink: React.PropTypes.shape({
-      value: React.PropTypes.string.isRequired,
-      requestChange: React.PropTypes.func.isRequired
-    })
+    name: React.PropTypes.string,
+    placeholder: React.PropTypes.string,
+    defaultValue: React.PropTypes.string,
+    error: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
+    onChange: React.PropTypes.func
+  },
+
+  getInitialState: function () {
+    return {
+      value: this.props.defaultValue || ''
+    }
   },
 
   getDefaultProps: function () {
     return {
-      label: '',
       type: 'text',
-      value: '',
-      onChange: function () {
-        return;
-      },
-      valueLink: null
+      onChange: this._onChange
     }
-  },
-
-  getValueLink: function(props) {
-    return props.valueLink || {
-      value: props.value,
-      requestChange: props.onChange
-    };
   },
 
   render: function () {
 
-    var Label; // the form label
+    var classes = this.getClass('input-group', {
+      'input-group-error': this.props.error || false,
+      'input-group-disabled': this.props.disabled || false
+    });
+
+    var label; // the form label
 
     if (this.props.label) {
-      Label = (
+      label = (
         <label className="input-group-label" for={this.props.name}>{this.props.label}</label>
       );
     }
 
+    /**
+     * Create the span element used for containing messages
+     * related to the element.
+     */
+    var span; 
+
+    if (this.props.error) {
+      span = (
+        <span className="input-group-span">{this.props.error}</span>
+      );
+    } else if (this.props.message) {
+      span = (
+        <span className="input-group-span">{this.props.message}</span>
+      );
+    } 
+
     return (
-      <div className="input-group">
-        <Label />
+      <div className={classes} ref={this.props.ref}>
+        {label}
         <input
-          type={this.props.type}
+          ref="input"
           className="input-group-field"
+          type={this.props.type}
           name={this.props.name}
-          label={this.props.label}
           placeholder={this.props.placeholder}
-          value={this.getValueLink(this.props).value}
+          value={this.state.value}
           onChange={this._onChange}/>
+        {span}
       </div>
     )
 
