@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a simple component designed to provide fields for all inputs on a form. Right now, only `password` and `text` inputs can be used with the component, but it will be expanded to provide date pickers, checkboxes/switches, selection menus, and file inputs.
+This is a simple component designed to provide fields for all inputs on a form. Right now, only `password`, `email` and `text` inputs can be used with the component, but it will be expanded to provide date pickers, checkboxes/switches, selection menus, and file inputs.
 
 ## Getting Started
 
@@ -14,7 +14,7 @@ This is a simple component designed to provide fields for all inputs on a form. 
 ```
 <Input
   ref={string}
-  type={string: text || password}
+  type={string: text || password || email}
   label={string}
   placeholder={string}
   defaultValue={string}
