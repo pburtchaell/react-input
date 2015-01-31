@@ -6,6 +6,19 @@
 
 ## Usage
 
+```
+<Input
+  ref="foo"
+  type="text"
+  label="Foo"
+  placeholder="Foo"
+  defaultValue=""
+  error="{false}
+  disabled={false}
+  onChange={function}
+/>
+```
+
 ### Props
 
 | Name          | Type    | Default   | Description                                                     |
@@ -18,11 +31,17 @@
 
 ### Methods
 
-| Method  |                   |                                           |
+| Method  | Usage             |                                           |
 |-------- |-----------------  |-----------------------------------------  |
 | focus   | `Input.focus()`   | Sets the focus on the input element.      |
 | value   | `Input.value()`   | Returns the value on the input element.   |
 | clear   | `Input.clear()`   | Clears the value on the input element.    |
+
+## Events
+
+| Event     | Description                               | 
+|---------  |-----------------------------------------  |
+| onChange  | Fuction runs on change                    | 
 
 ### DOM Nodes
 
