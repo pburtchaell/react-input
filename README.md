@@ -8,12 +8,13 @@
 
 ### Props
 
-| Name          | Type    | Default   | Description                                                     |           |
-|-------------  |-------- |---------  |---------------------------------------------------------------  |---------- |
-| type          | string  | `text`    | The type of input field, e.g., `text`, `password`, or `email`   | optional  |
-| label         | string  |           | an instructional label for the input                            | optional  |
-| placeholder   | string  |           | inline placeholder text for the input                           | optional  |
-| error         | string  |           | error message for the input                                     | optional  |
+| Name          | Type    | Default   | Description                                                     |
+|-------------  |-------- |---------  |---------------------------------------------------------------  |
+| type          | string  | `text`    | The type of input field, e.g., `text`, `password`, or `email`   |
+| required      | bool    | `false`   | Make the form required                                          | 
+| label         | string  |           | an instructional label for the input                            | 
+| placeholder   | string  |           | inline placeholder text for the input                           | 
+| error         | string  |           | error message for the input                                     | 
 
 ### Methods
 
