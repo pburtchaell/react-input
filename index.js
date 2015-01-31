@@ -27,7 +27,7 @@ var Input = React.createClass({
    * @function clear
    * @description Clear the value of the element.
    */
-  clear: function() {
+  clear: function () {
     this.setState({
       value: ''
     });
