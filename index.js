@@ -46,7 +46,7 @@ var Input = React.createClass({
     // Set the state
     this.setState({
       value: value
-    }); 
+    });
 
     // Run the onChange function if it exists
     if (this.props.onChange) {
@@ -58,7 +58,6 @@ var Input = React.createClass({
   propTypes: {
     label: React.PropTypes.string,
     type: React.PropTypes.string,
-    name: React.PropTypes.string,
     placeholder: React.PropTypes.string,
     defaultValue: React.PropTypes.string,
     error: React.PropTypes.string,
@@ -98,7 +97,7 @@ var Input = React.createClass({
      * Create the span element used for containing messages
      * related to the element.
      */
-    var span; 
+    var span;
 
     if (this.props.error) {
       span = (
@@ -108,7 +107,7 @@ var Input = React.createClass({
       span = (
         <span className="input-group-span">{this.props.message}</span>
       );
-    } 
+    }
 
     return (
       <div className={classes} ref={this.props.ref}>
@@ -117,7 +116,7 @@ var Input = React.createClass({
           ref="input"
           className="input-group-field"
           type={this.props.type}
-          name={this.props.name}
+          name={this.props.ref}
           placeholder={this.props.placeholder}
           value={this.state.value}
           onChange={this._onChange}/>
