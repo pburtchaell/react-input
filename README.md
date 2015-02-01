@@ -1,4 +1,4 @@
-# react-input
+# react-input [![Dependency Status](https://david-dm.org/pburtchaell/react-classes.svg)](https://david-dm.org/pburtchaell/react-input)
 
 ## Overview
 
