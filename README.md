@@ -48,7 +48,7 @@ This is a simple component designed to provide fields for all inputs on a form. 
 |---------  |-----------------------------------------  |
 | onChange  | Fuction runs on change                    |
 
-### DOM Nodes
+### DOM Node Tree
 
 As this component does not include CSS styles to use, you will need to add your own styles. The DOM tree of the component is included below for reference.
 
