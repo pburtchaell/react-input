@@ -1,4 +1,4 @@
-var React = require('react/addons');
+var React = require('react');
 var classes = require('react-classes');
 
 var Input = React.createClass({
