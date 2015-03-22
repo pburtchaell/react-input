@@ -2,7 +2,7 @@
   "name": "react-input",
   "version": "1.0.5",
   "description": "An input component for React.",
-  "main": "index.js",
+  "main": "web_modules/index.js",
   "scripts": {
     "start": "webpack --watch --progress --colors"
   },
