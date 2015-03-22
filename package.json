@@ -2,9 +2,9 @@
   "name": "react-input",
   "version": "1.0.5",
   "description": "An input component for React.",
-  "main": "index.js",
+  "main": "web_modules/index.js",
   "scripts": {
-    "test": "echo"
+    "start": "webpack --watch --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,14 @@
   },
   "homepage": "https://github.com/pburtchaell/react-input",
   "dependencies": {
+    "object-assign": "^2.0.0",
     "react": "^0.12.2",
     "react-classes": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "react-tools": "^0.13.1",
+    "webpack": "^1.7.3"
   }
 }
