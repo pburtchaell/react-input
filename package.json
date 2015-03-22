@@ -4,7 +4,7 @@
   "description": "An input component for React.",
   "main": "index.js",
   "scripts": {
-    "test": "echo"
+    "start": "webpack --watch --progress --colors"
   },
   "repository": {
     "type": "git",
