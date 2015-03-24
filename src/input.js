@@ -1,9 +1,7 @@
 var React = require('react/addons');
-var classes = require('react-classes');
+var classNames = require('classnames');
 
 var Input = React.createClass({
-
-  mixins: [classes],
 
   /**
    * @function focus
@@ -80,7 +78,7 @@ var Input = React.createClass({
 
   render: function () {
 
-    var classes = this.getClass('input-group', {
+    var classes = classNames('input-group', {
       'input-group-error': this.props.error || false,
       'input-group-disabled': this.props.disabled || false
     });

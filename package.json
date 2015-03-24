@@ -29,6 +29,6 @@
   "homepage": "https://github.com/pburtchaell/react-input",
   "dependencies": {
     "react": "^0.12.2",
-    "react-classes": "^1.0.3"
+    "classnames": "^1.2.0",
   }
 }
