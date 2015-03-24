@@ -27,8 +27,11 @@
     "url": "https://github.com/pburtchaell/react-input/issues"
   },
   "homepage": "https://github.com/pburtchaell/react-input",
+  "peerDependencies": {
+    "react": "0.12.x || ^0.13.x"
+  },
   "dependencies": {
-    "react": "^0.12.2",
     "classnames": "^1.2.0",
+    "react": "^0.13.x"
   }
 }
