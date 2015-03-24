@@ -2,9 +2,12 @@
   "name": "react-input",
   "version": "1.0.5",
   "description": "An input component for React.",
-  "main": "index.js",
+  "main": "dist/input.js",
   "scripts": {
-    "test": "echo"
+    "build:js": "./node_modules/.bin/jsx --harmony ./src ./dist",
+    "build:jsx": "./node_modules/.bin/jsx --harmony -x jsx ./src ./dist",
+    "build": "npm run build:js && npm run build:jsx",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
