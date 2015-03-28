@@ -2,26 +2,33 @@
 
 ## Overview
 
-This is a simple component designed to provide fields for all inputs on a form. Right now, only `password`, `email` and `text` inputs can be used with the component, but it will be expanded to provide date pickers, checkboxes/switches, selection menus, and file inputs.
+This is a set of component designed for building forms in React. There are four components in total:
+
+1. `<Form>`: The wrapper component
+2. `<Field>`: The wrapper for inputs
+3. `<Label>`: A label for inputs (optional)
+4. `<Input>`: The input
+
+Right now, only `password`, `email` and `text` inputs can be used, but it can be expanded to provide date pickers, checkboxes/switches, selection menus, and file inputs in the future.
 
 ## Getting Started
 
 1. First, install the component via npm: `npm install react-input`
-2. Require the component: `var Input = require('react-input');`
+2. Require the component: `import Input from 'react-input';`
 
 ## Usage
 
 ```
-<Input
-  ref={string}
-  type={string: text || password || email}
-  label={string}
-  placeholder={string}
-  defaultValue={string}
-  error={string}
-  disabled={bool}
-  onChange={function}
-/>
+<Form>
+  <Field ref="name" message="Enter your full name">
+    <Label />
+    <Input required={true} type="text" placeholder="John Smith" />
+  </Field>
+  <Field ref="email" error="Error description">
+    <Label />
+    <Input required={true} type="email" />
+  </Field>
+</Form>
 ```
 
 ### Props
@@ -48,7 +55,7 @@ This is a simple component designed to provide fields for all inputs on a form. 
 |---------  |-----------------------------------------  |
 | onChange  | Fuction runs on change                    |
 
-### DOM Node Tree
+### Styles
 
 As this component does not include CSS styles to use, you will need to add your own styles. The DOM tree of the component is included below for reference.
 
