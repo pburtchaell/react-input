@@ -1,38 +1,43 @@
 {
   "name": "react-input",
-  "version": "1.0.5",
-  "description": "An input component for React.",
-  "main": "web_modules/index.js",
+  "version": "2.0.0",
+  "description": "Components for building forms in React.",
+  "main": "dist/input.js",
   "scripts": {
-    "start": "webpack --watch --progress --colors"
+    "build": "make build",
+    "start": "NODE_ENV=development node webpack.local.server.js",
+    "prepublish": "make npm"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/pburtchaell/react-input"
+    "url": "http://github.com/pburtchaell/react-input.git"
   },
   "keywords": [
     "react",
+    "react-component",
     "component",
     "components",
     "ui",
     "input",
     "field"
   ],
-  "author": "Patrick Burtchaell <patrick@pburtchaell.com> (http://pburtchaell.com/)",
+  "author": "Patrick Burtchaell <patrick@pburtchaell.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pburtchaell/react-input/issues"
   },
   "homepage": "https://github.com/pburtchaell/react-input",
   "dependencies": {
-    "object-assign": "^2.0.0",
-    "react": "^0.12.2",
-    "react-classes": "^1.0.3"
+    "array.from": "^0.2.0",
+    "object-assign": "^3.0.0",
+    "react": "^0.13.3"
   },
   "devDependencies": {
-    "babel-core": "^4.7.16",
-    "babel-loader": "^4.2.0",
-    "react-tools": "^0.13.1",
-    "webpack": "^1.7.3"
+    "babel": "^5.5.5",
+    "babel-core": "^5.5.4",
+    "babel-loader": "^5.1.4",
+    "html-webpack-plugin": "^1.4.0",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0"
   }
 }
