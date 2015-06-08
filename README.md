@@ -2,65 +2,84 @@
 
 ## Overview
 
-This is a simple component designed to provide fields for all inputs on a form. Right now, only `password`, `email` and `text` inputs can be used with the component, but it will be expanded to provide date pickers, checkboxes/switches, selection menus, and file inputs.
+This is a set of lightweight, dependency free components for building forms in React. There are three components in total:
 
-## Getting Started
+1. `<Field>`: A wrapper that provides methods to get input values.
+2. `<Label>`: An optional text label.
+3. `<Input>`: A textarea, email, text or password input.
+4. `<Submit>`: A submit button.
 
-1. First, install the component via npm: `npm install react-input`
-2. Require the component: `var Input = require('react-input');`
+Right now, only `textarea`, `password`, `email` and `text` inputs can be used, but it can be expanded to provide date pickers, checkboxes/switches, selection menus, and file inputs in the future.
 
 ## Usage
 
+- Install the component via npm: `npm install react-input`
+
 ```
-<Input
-  ref={string}
-  type={string: text || password || email}
-  label={string}
-  placeholder={string}
-  defaultValue={string}
-  error={string}
-  disabled={bool}
-  onChange={function}
-/>
+<form onSubmit={this.myFormSubmissionHandler}>
+  <Field ref="name">
+    <Label />
+    <Input required type="text" placeholder="Name" />
+  </Field>
+  <Submit />
+</form>
 ```
+
+For a detailed example, see [the example project](/example).
 
 ### Props
 
-| Name          | Type    | Default   | Description                                                     |
-|-------------  |-------- |---------  |---------------------------------------------------------------  |
-| type          | string  | `text`    | The type of input field, e.g., `text`, `password`, or `email`   |
-| required      | bool    | `false`   | Make the form required                                          |
-| label         | string  |           | an instructional label for the input                            |
-| placeholder   | string  |           | inline placeholder text for the input                           |
-| error         | string  |           | error message for the input                                     |
+All standard HTML input attributes are supported and can be used as props.
 
-### Methods
+### Input Methods
 
-| Method  | Usage             |                                           |
-|-------- |-----------------  |-----------------------------------------  |
-| focus   | `Input.focus()`   | Sets the focus on the input element.      |
-| value   | `Input.value()`   | Returns the value on the input element.   |
-| clear   | `Input.clear()`   | Clears the value on the input element.    |
+| Method  | Usage             |                                     |
+|-------- |-----------------  |------------------------------------ |
+| focus   | `Input.focus()`   | Sets the focus on the element.      |
+| value   | `Input.value()`   | Returns the value on the element.*  |
+| clear   | `Input.clear()`   | Clears the value on the element.    |
 
-## Events
+_*Note that you can also change the value of an input directly by `Input.value = 'newValue'_
+
+### Input Events
 
 | Event     | Description                               |
 |---------  |-----------------------------------------  |
-| onChange  | Fuction runs on change                    |
+| onChange  | Runs on change                            |
 
-### DOM Node Tree
+Considering this component:
 
-As this component does not include CSS styles to use, you will need to add your own styles. The DOM tree of the component is included below for reference.
+```
+<Input
+  type="email"
+  onChange={this.handleInputChange.bind(null, 'email')}
+/>
+```
+
+An event handler might look like:
+
+```
+handleInputChange(fieldName, event, value) {
+  this.setState({
+    [fieldName]: value
+  });
+}
+```
+
+### DOM Tree
+
+As this component does not include CSS styles to use, you will need to add your own styles. If you are using inline styles, just include the `style` prop on each component.
+
+The default DOM tree of the component is included below for reference. You can also override the default classes by just using `className` like you would normally.
 
 ```html
 <div class="input-group">
   <label class="input-group-label"></label>
-  <input class="input-group-field">
-  <span class="input-group-message"></span>
+  <input class="input-group-input">
 </div>
 ```
 
 ---
 Built with care in New Orleans by [Patrick Burtchaell](http://twitter.com/pburtchaell).
 
-Copyright 2014 Patrick Burtchaell. Licensed MIT.
+Copyright 2015 Patrick Burtchaell. Licensed MIT.

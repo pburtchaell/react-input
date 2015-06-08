@@ -1,2 +1,5 @@
 node_modules/
+_gh_pages/
 dist/
+*.log
+.DS_Store
