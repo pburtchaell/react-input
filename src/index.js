@@ -1,4 +1,4 @@
-exports.Field = require('./field');
-exports.Input = require('./input');
-exports.Label = require('./label');
-exports.Submit = require('./submit');
+exports.Field = require('./field.js');
+exports.Input = require('./input.js');
+exports.Label = require('./label.js');
+exports.Submit = require('./submit.js');
