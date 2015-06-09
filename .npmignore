@@ -1,2 +1,10 @@
 example/
 webpack.config.js
+.eslintrc
+.babelrc
+Makefile
+CONTRIBUTING.md
+README.md
+webpack.local.config.js
+webpack.local.server.js
+webpack.production.config.js
