@@ -1,14 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 import { Field, Input, Label, Submit } from 'index';
 
-class View extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleFormSubmission = this.handleFormSubmission.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.state = {};
-  }
-
+class View extends Component {
   componentDidMount() {
     this.refs.nameInput.focus();
   }
@@ -83,7 +77,7 @@ class View extends React.Component {
     };
 
     return (
-      <form name="example" method="post" onSubmit={this.handleFormSubmission}>
+      <form name="example" method="post" onSubmit={::this.handleFormSubmission}>
 
         <Field ref="name" name="name" className="input-group" style={style}>
           <Label className="input-group-addon" />
@@ -91,7 +85,7 @@ class View extends React.Component {
             ref="nameInput"
             className="form-control"
             placeholder="John Smith"
-            onChange={this.handleInputChange.bind(null, 'name')}
+            onChange={this.handleInputChange}
           />
         </Field>
 
@@ -101,7 +95,7 @@ class View extends React.Component {
             type="email"
             className="form-control"
             placeholder="email@example.com"
-            onChange={this.handleInputChange.bind(null, 'email')}
+            onChange={this.handleInputChange}
           />
           <Label className="input-group-addon" />
         </Field>
@@ -112,7 +106,7 @@ class View extends React.Component {
             required
             className="form-control"
             placeholder="0-000-000-0000"
-            onChange={this.handleInputChange.bind(null, 'phone')}
+            onChange={this.handleInputChange}
           />
         </Field>
 
@@ -158,4 +152,4 @@ class View extends React.Component {
 
 }
 
-React.render(<View />, document.body);
+render(<View />, document.querySelector('#mount'));
