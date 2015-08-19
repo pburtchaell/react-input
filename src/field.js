@@ -1,16 +1,16 @@
 import 'array.from';
-import React from 'react';
+import React, { Children, PropTypes } from 'react';
 import assign from 'object-assign';
 
 export default class Field extends React.Component {
-  constructor(props) {
-    super(props);
-    this.cloneChild = this.cloneChild.bind(this);
+  static defaultProps = {
+    className: 'input-group',
+    style: null
   }
 
   static propTypes = {
-    name: React.PropTypes.string.isRequired,
-    message: React.PropTypes.string,
+    name: PropTypes.string.isRequired,
+    message: PropTypes.string,
   }
 
   /**
@@ -19,41 +19,14 @@ export default class Field extends React.Component {
    * component(s) of the field with the correct props.
    */
   cloneChild = (child) => {
-    const newProps = assign({
-      ...child.props
-    },{
-      name: this.props.name
-    })
     return React.cloneElement(
       child,
-      newProps
+      assign({
+        ...child.props
+      },{
+        name: this.props.name
+      })
     );
-  }
-
-  /**
-   * @private
-   * @function
-   * @description If the prop exists, then get the style for the component.
-   * @returns {object} The style.
-   */
-  get style() {
-    if (this.props.style) {
-      return this.props.style;
-    }
-  }
-
-  /**
-   * @private
-   * @function
-   * @description Get the class name for the component.
-   * @returns {string} The class name.
-   */
-  get className() {
-    if (this.props.className) {
-      return this.props.className;
-    } else {
-      return 'input-group';
-    }
   }
 
   /**
@@ -70,8 +43,8 @@ export default class Field extends React.Component {
       return (
         <div
           ref="field"
-          className={this.className}
-          style={this.style}>
+          className={this.props.className}
+          style={this.props.style}>
           {this.cloneChild(child)}
         </div>
       );
@@ -79,9 +52,9 @@ export default class Field extends React.Component {
       return (
         <div
           ref="field"
-          className={this.className}
-          style={this.style}>
-          {React.Children.map(this.props.children, this.cloneChild)}
+          className={this.props.className}
+          style={this.props.style}>
+          {Children.map(this.props.children, this.cloneChild)}
         </div>
       );
     }
