@@ -19,9 +19,13 @@ Right now, only `textarea`, `password`, `email` and `text` inputs can be used, b
 
 ```
 <form onSubmit={this.myFormSubmissionHandler}>
-  <Field ref="name">
+  <Field ref="email" name="email">
     <Label />
-    <Input required type="text" placeholder="Name" />
+    <Input
+      required
+      type="email"
+      placeholder="Name"
+    />
   </Field>
   <Submit />
 </form>
@@ -45,25 +49,27 @@ _*Note that you can also change the value of an input directly by `Input.value =
 
 ### Input Events
 
-| Event     | Description                               |
-|---------  |-----------------------------------------  |
-| onChange  | Runs on change                            |
+| Event     | Description                                               |
+|---------  |---------------------------------------------------------  |
+| onChange  | Runs on change. Includes the name and value of the input. |
 
 Considering this component:
 
 ```
-<Input
-  type="email"
-  onChange={this.handleInputChange.bind(null, 'email')}
-/>
+<Field ref="email" name="email">
+  <Input
+    type="email"
+    onChange={::this.handleInputChange}
+  />
+</Field>
 ```
 
 An event handler might look like:
 
 ```
-handleInputChange(fieldName, event, value) {
-  this.setState({
-    [fieldName]: value
+handleInputChange(value, field, event) {
+  return this.setState({
+    [field]: value
   });
 }
 ```
