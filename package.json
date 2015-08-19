@@ -27,10 +27,13 @@
     "url": "https://github.com/pburtchaell/react-input/issues"
   },
   "homepage": "https://github.com/pburtchaell/react-input",
+  "peerDependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
+  },
   "dependencies": {
     "array.from": "^0.2.0",
-    "object-assign": "^3.0.0",
-    "react": "^0.13.3"
+    "object-assign": "^3.0.0"
   },
   "devDependencies": {
     "babel": "^5.5.5",
