@@ -7,26 +7,16 @@ class View extends Component {
     this.refs.nameInput.focus();
   }
 
-  /**
-   * @function handleFormSubmission
-   * @description
-   */
   handleFormSubmission(event) {
     event.preventDefault();
     console.log(':)', this.state);
   }
 
-  /**
-   * @function handleInputChange
-   * @description Update the state with the values from the form inputs.
-   * @fires context#setState
-   */
-   handleInputChange(id, event, value) {
-     this.setState({
-       [id]: value
-     });
-     console.log(`${id} value:`, this.state[id])
-   }
+  handleChange(value, name, event) {
+    return this.setState({
+      [name]: value
+    });
+  }
 
   render() {
     return (
@@ -85,7 +75,7 @@ class View extends Component {
             ref="nameInput"
             className="form-control"
             placeholder="John Smith"
-            onChange={this.handleInputChange}
+            onChange={::this.handleChange}
           />
         </Field>
 
@@ -95,7 +85,7 @@ class View extends Component {
             type="email"
             className="form-control"
             placeholder="email@example.com"
-            onChange={this.handleInputChange}
+            onChange={::this.handleChange}
           />
           <Label className="input-group-addon" />
         </Field>
@@ -106,7 +96,7 @@ class View extends Component {
             required
             className="form-control"
             placeholder="0-000-000-0000"
-            onChange={this.handleInputChange}
+            onChange={::this.handleChange}
           />
         </Field>
 
