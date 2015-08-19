@@ -21,7 +21,7 @@ export default class Input extends Component {
       PropTypes.string,
       PropTypes.number
     ]),
-    onChange: PropTypes.func,
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
@@ -34,7 +34,7 @@ export default class Input extends Component {
    * @function value
    * @returns {string|int} value The value of the input.
    */
-  value = () => this.refs.input.getDOMNode().value;
+  value = () => this.refs.input.value;
 
   /**
    * @function value
@@ -42,23 +42,22 @@ export default class Input extends Component {
    * @param {string|int} newValue The new value of the input.
    */
   setValue = newValue => {
-    const input = this.refs.input;
-    input.getDOMNode().value = newValue;
+    this.refs.input.value = newValue;
   }
 
   /**
    * @function focus
    * @description Focus on the element.
    */
-  focus = () => this.refs.input.getDOMNode().focus();
+  focus = () => this.refs.input.focus();
 
   /**
    * @function clear
    * @description Clear the value of the element.
    */
   clear = () => {
-    this.refs.inpu.getDOMNode().value = ''
-  };
+    this.refs.input.value = '';
+  }
 
   /**
    * @private
