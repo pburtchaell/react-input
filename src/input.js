@@ -66,10 +66,9 @@ export default class Input extends Component {
    */
   handleChange(event) {
     event.preventDefault();
-    const value = this.value;
 
     if (this.props.onChange) {
-      this.props.onChange(event, value);
+      this.props.onChange(this.value(), this.props.name, event);
     }
   }
 
@@ -94,8 +93,8 @@ export default class Input extends Component {
         <input
           {...this.props}
           ref="input"
-          id={this.context.name}
-          name={this.context.name}
+          id={this.props.name}
+          name={this.props.name}
           className={this.props.className}
           style={this.props.style}
           onChange={::this.handleChange}
