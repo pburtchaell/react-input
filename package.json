@@ -1,6 +1,6 @@
 {
   "name": "react-input",
-  "version": "3.0.0-beta",
+  "version": "3.0.1-beta",
   "description": "Components for building forms in React.",
   "main": "dist/index.js",
   "scripts": {
@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/pburtchaell/react-input",
   "peerDependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^0.14.0 || 0.14.0-beta1 || 0.14.0-beta3",
+    "react-dom": "^0.14.0 || 0.14.0-beta1 || 0.14.0-beta3"
   },
   "dependencies": {
     "array.from": "^0.2.0",
