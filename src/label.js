@@ -1,31 +1,24 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
 /**
- * @function capitalize
- * @description Captializes the first word in a string.
- * @returns {string}
+ * @function Label
+ * @description A label for fields.
  */
-String.prototype.capitalize = function () {
-  return this.charAt(0).toUpperCase() + this.slice(1);
+const Label = (props) => {
+  return (
+    <label
+      htmlFor={props.name}
+      className={props.className}
+      style={props.style}
+    >
+      {props.name}
+    </label>
+  );
 };
 
-export default class Label extends Component {
-  static propTypes = {
-    name: PropTypes.string
-  }
+Label.defaultProps = {
+  className: 'form-group-label',
+  style: null
+};
 
-  static defaultProps = {
-    className: 'form-group-label'
-  }
-
-  render() {
-    return (
-      <label
-        htmlFor={this.context.name}
-        className={this.props.className}
-        style={this.props.style}>
-        {this.props.name.capitalize()}
-      </label>
-    );
-  }
-}
+export default Label;

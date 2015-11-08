@@ -1,62 +1,58 @@
-import 'array.from';
-import React, { Children, PropTypes } from 'react';
-import assign from 'object-assign';
+import React, { Component, PropTypes } from 'react';
+import Label from './label';
+import Input from './input';
 
-export default class Field extends React.Component {
-  static defaultProps = {
-    className: 'input-group',
-    style: null
-  }
+/**
+ * @class Field
+ * @description A field in the form.
+ */
+class Field extends Component {
+  render() {
+    const { name, style } = this.props;
 
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-    message: PropTypes.string,
-  }
-
-  /**
-   * @function cloneChild
-   * @description Creates a clone of the child/children
-   * component(s) of the field with the correct props.
-   */
-  cloneChild = (child) => {
-    return React.cloneElement(
-      child,
-      assign({
-        ...child.props
-      },{
-        name: this.props.name
-      })
+    return (
+      <div className="form-field" style={style}>
+        {this.props.label ? (
+          <Label
+            name={name}
+          />
+        ) : null}
+        {this.props.input ? (
+          <Input
+            {...this.props}
+            name={name}
+            onChange={this.props.onChange}
+          />
+        ) : null}
+      </div>
     );
   }
-
-  /**
-   * @private
-   * @function render
-   * @description Render the wrapper and clones of the child/children
-   * component(s).
-   * @fires React#Children.map
-   * @fires context#cloneChild
-   */
-  render() {
-    if (!Array.isArray(this.props.children)) {
-      const child = this.props.children;
-      return (
-        <div
-          ref="field"
-          className={this.props.className}
-          style={this.props.style}>
-          {this.cloneChild(child)}
-        </div>
-      );
-    } else {
-      return (
-        <div
-          ref="field"
-          className={this.props.className}
-          style={this.props.style}>
-          {Children.map(this.props.children, this.cloneChild)}
-        </div>
-      );
-    }
-  }
 }
+
+Field.propTypes = {
+  className: PropTypes.string,
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  label: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.bool
+  ]).isRequired,
+  name: PropTypes.string.isRequired,
+  style: PropTypes.object
+}
+
+Field.defaultProps = {
+  className: 'form-field', // What is the field className?
+  type: 'text', // What type of input field is it?
+  placeholder: null, // What is the input field placholder?
+  required: true, // Is the input field required?
+  disabled: false, // Is the field disabled?
+  label: true, // Is there a label for the field?
+  input: true, // Is there an input?
+  name: null, // What is the name of the field?
+  style: null // What is the style of the field?
+}
+
+export default Field;

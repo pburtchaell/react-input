@@ -1,24 +1,23 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
-export default class Submit extends Component {
-  static defaultProps = {
-    className: 'form-submit-button',
-    style: null
-  }
+/**
+ * @function Submit
+ * @description A submit button for the form component. This component
+ * is never really used by the consumer, but rather it is added
+ * automatically.
+ */
+const Submit = (props) => {
+  return (
+    <button
+      {...props}
+      type="submit"
+      children="Submit"
+    ></button>
+  );
+};
 
-  static propTypes = {
-    children: PropTypes.string
-  }
+Submit.defaultProps = {
+  className: 'form-submit-button'
+};
 
-  render() {
-    return (
-      <button
-        type="submit"
-        className={this.props.className}
-        style={this.props.style}
-      >
-        {this.props.children}
-      </button>
-    );
-  }
-}
+export default Submit;

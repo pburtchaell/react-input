@@ -1,105 +1,22 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
 /**
- * @class Input
- * @description Orginally, this input component was "controlled" as suggested in
- * the React documentation. However, it is best to have "stateless"
- * components and to instead hold the state of your application in singleton
- * stores. The stores should then pass the state of the application to
- * components via props. It is a cleaner way to handle your state.
- * @link facebook.github.io/react/docs/forms.html#controlled-components
- * @link facebook.github.io/react/docs/forms.html#uncontrolled-components
+ * @function Input
+ * @description An input in a field.
  */
-export default class Input extends Component {
-  static propTypes = {
-    name: PropTypes.string,
-    type: PropTypes.string,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
-    placeholder: PropTypes.string,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    onChange: PropTypes.func
-  }
-
-  static defaultProps = {
-    type: 'text',
-    className: 'input-group-input',
-    style: null
-  }
-
-  /**
-   * @function value
-   * @returns {string|int} value The value of the input.
-   */
-  value = () => this.refs.input.value;
-
-  /**
-   * @function value
-   * @description Change the value of the input directly.
-   * @param {string|int} newValue The new value of the input.
-   */
-  setValue = newValue => {
-    this.refs.input.value = newValue;
-  }
-
-  /**
-   * @function focus
-   * @description Focus on the element.
-   */
-  focus = () => this.refs.input.focus();
-
-  /**
-   * @function clear
-   * @description Clear the value of the element.
-   */
-  clear = () => {
-    this.refs.input.value = '';
-  }
-
-  /**
-   * @private
-   * @function handleChange
-   * @description Run the onChange function if it exists
-   */
-  handleChange(event) {
-    event.preventDefault();
-
-    if (this.props.onChange) {
-      this.props.onChange(this.value(), this.props.name, event);
-    }
-  }
-
-  /**
-   * @private
-   * @function render
-   * @description Render the input.
-   */
-  render() {
-    if (this.props.type === 'textarea') {
-      return (
-        <textarea
-          {...this.props}
-          ref="input"
-          role="textbox"
-          className={this.props.className}
-          onChange={::this.handleChange}
-        />
-      )
-    } else {
-      return (
-        <input
-          {...this.props}
-          ref="input"
-          id={this.props.name}
-          name={this.props.name}
-          className={this.props.className}
-          style={this.props.style}
-          onChange={::this.handleChange}
-        />
-      );
-    }
-  }
+class Input = (props) => {
+  return props.type === 'textarea' ? (
+    <textarea
+      {...props}
+      role="textbox"
+      onChange={(e) => props.onChange(e.target.value)}
+    />
+  ) : (
+    <input
+      {...props}
+      onChange={(e) => props.onChange(e.target.value)}
+    />
+  );
 }
+
+export default Input;
