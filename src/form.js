@@ -73,10 +73,10 @@ class Form extends Component {
 
           return (
             <Field
-              key={`${Math.random()}-${field.name}`}
+              key={`${Math.random()}-${caseSafeFieldName}`}
               {...field}
               value={this.state[caseSafeFieldName]}
-              onChange={(value) => {
+              onChange={value => {
                 this.handleChange(caseSafeFieldName, value);
 
                 if (field.onChange) field.onChange(value);
