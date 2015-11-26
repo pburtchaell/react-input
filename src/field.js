@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import Label from './label';
 import Input from './input';
 
@@ -6,26 +6,21 @@ import Input from './input';
  * @class Field
  * @description A field in the form.
  */
-class Field extends Component {
-  render() {
-    const { name, style } = this.props;
+const Field = (props) => (
+  <div className="form-field" style={props.style}>
+    {props.label ? (
+      <Label
+        name={props.name}
+      />
+    ) : null}
+    {props.input ? (
+      <Input
+        {...props}
+      />
+    ) : null}
+  </div>
+);
 
-    return (
-      <div className="form-field" style={style}>
-        {this.props.label ? (
-          <Label
-            name={name}
-          />
-        ) : null}
-        {this.props.input ? (
-          <Input
-            {...this.props}
-          />
-        ) : null}
-      </div>
-    );
-  }
-}
 
 Field.propTypes = {
   className: PropTypes.string,
