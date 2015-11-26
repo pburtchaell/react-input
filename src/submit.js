@@ -6,15 +6,13 @@ import React from 'react';
  * is never really used by the consumer, but rather it is added
  * automatically.
  */
-const Submit = (props) => {
-  return (
-    <button
-      {...props}
-      type="submit"
-      children="Submit"
-    />
-  );
-};
+const Submit = (props) => (
+  <button
+    {...props}
+    type="submit"
+    children="Submit"
+  />
+);
 
 Submit.defaultProps = {
   className: 'form-submit-button'
