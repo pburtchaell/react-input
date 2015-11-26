@@ -8,17 +8,11 @@ const Label = (props) => {
   return (
     <label
       htmlFor={props.name}
-      className={props.className}
-      style={props.style}
+      className="form-field-label"
     >
       {props.name}
     </label>
   );
-};
-
-Label.defaultProps = {
-  className: 'form-group-label',
-  style: null
 };
 
 export default Label;

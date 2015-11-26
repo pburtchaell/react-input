@@ -20,8 +20,6 @@ class Field extends Component {
         {this.props.input ? (
           <Input
             {...this.props}
-            name={name}
-            onChange={this.props.onChange}
           />
         ) : null}
       </div>
@@ -40,7 +38,12 @@ Field.propTypes = {
     PropTypes.bool
   ]).isRequired,
   name: PropTypes.string.isRequired,
-  style: PropTypes.object
+  style: PropTypes.object,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string
+  ])
 }
 
 Field.defaultProps = {

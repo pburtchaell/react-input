@@ -12,7 +12,7 @@ const Submit = (props) => {
       {...props}
       type="submit"
       children="Submit"
-    ></button>
+    />
   );
 };
 

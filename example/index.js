@@ -22,15 +22,27 @@ class ExampleForm extends Component {
         fields={[
           {
             name: 'Email',
+            type: 'email',
             error: false,
+            required: false,
             placeholder: 'Enter an email'
           },
           {
             name: 'Phone',
             error: false,
-            placholder: 'Enter a phone'
+            placeholder: 'Enter a phone',
+            defaultValue: '504-123-4567',
+            onChange: (value) => {
+              console.log(value);
+            }
           }
         ]}
+        ref={node => {
+
+          // Use callback refs because ref='string' will get deprecated
+          this.form = node;
+        }}
+        onChange={(state) => console.log(state)}
         onSubmit={(state) => console.log(state)}
       />
     );
