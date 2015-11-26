@@ -2,26 +2,24 @@
 
 ## Overview
 
-**If you are using React 0.14.0, you can install the compatible version of this component with `npm i react-input@3.0.0-beta -S`.**
-
-This is a set of lightweight, dependency free components for building forms in React. There are three components in total:
-
-1. `<Field>`: A wrapper that provides methods to get input values.
-2. `<Label>`: An optional text label.
-3. `<Input>`: A textarea, email, text or password input.
-4. `<Submit>`: A submit button.
+React input is a lightweight, dependency free component for building forms in React without having to think about what happens under the hood.
 
 Right now, only `textarea`, `password`, `email` and `text` inputs can be used, but it can be expanded to provide date pickers, checkboxes/switches, selection menus, and file inputs in the future.
 
 ## Usage
 
 - Install the component via npm: `npm install react-input`
+- Require the form component
 
 ```
 <form onSubmit={this.myFormSubmissionHandler}>
-  <Field ref="name">
+  <Field ref="email" name="email">
     <Label />
-    <Input required type="text" placeholder="Name" />
+    <Input
+      required
+      type="email"
+      placeholder="Name"
+    />
   </Field>
   <Submit />
 </form>
@@ -45,25 +43,27 @@ _*Note that you can also change the value of an input directly by `Input.value =
 
 ### Input Events
 
-| Event     | Description                               |
-|---------  |-----------------------------------------  |
-| onChange  | Runs on change                            |
+| Event     | Description                                               |
+|---------  |---------------------------------------------------------  |
+| onChange  | Runs on change. Includes the name and value of the input. |
 
 Considering this component:
 
 ```
-<Input
-  type="email"
-  onChange={this.handleInputChange.bind(null, 'email')}
-/>
+<Field ref="email" name="email">
+  <Input
+    type="email"
+    onChange={::this.handleInputChange}
+  />
+</Field>
 ```
 
 An event handler might look like:
 
 ```
-handleInputChange(fieldName, event, value) {
-  this.setState({
-    [fieldName]: value
+handleInputChange(value, field, event) {
+  return this.setState({
+    [field]: value
   });
 }
 ```

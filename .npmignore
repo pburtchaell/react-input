@@ -5,6 +5,4 @@ webpack.config.js
 Makefile
 CONTRIBUTING.md
 README.md
-webpack.local.config.js
-webpack.local.server.js
-webpack.production.config.js
+server.js

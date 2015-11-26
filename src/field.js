@@ -1,89 +1,56 @@
-import 'array.from';
-import React from 'react';
-import assign from 'object-assign';
+import React, { PropTypes } from 'react';
+import Label from './label';
+import Input from './input';
 
-export default class Field extends React.Component {
-  constructor(props) {
-    super(props);
-    this.cloneChild = this.cloneChild.bind(this);
-  }
+/**
+ * @class Field
+ * @description A field in the form.
+ */
+const Field = (props) => (
+  <div className="form-field" style={props.style}>
+    {props.label ? (
+      <Label
+        name={props.name}
+      />
+    ) : null}
+    {props.input ? (
+      <Input
+        {...props}
+      />
+    ) : null}
+  </div>
+);
 
-  static propTypes = {
-    name: React.PropTypes.string.isRequired,
-    message: React.PropTypes.string,
-  }
 
-  /**
-   * @function cloneChild
-   * @description Creates a clone of the child/children
-   * component(s) of the field with the correct props.
-   */
-  cloneChild = (child) => {
-    const newProps = assign({
-      ...child.props
-    },{
-      name: this.props.name
-    })
-    return React.cloneElement(
-      child,
-      newProps
-    );
-  }
-
-  /**
-   * @private
-   * @function
-   * @description If the prop exists, then get the style for the component.
-   * @returns {object} The style.
-   */
-  get style() {
-    if (this.props.style) {
-      return this.props.style;
-    }
-  }
-
-  /**
-   * @private
-   * @function
-   * @description Get the class name for the component.
-   * @returns {string} The class name.
-   */
-  get className() {
-    if (this.props.className) {
-      return this.props.className;
-    } else {
-      return 'input-group';
-    }
-  }
-
-  /**
-   * @private
-   * @function render
-   * @description Render the wrapper and clones of the child/children
-   * component(s).
-   * @fires React#Children.map
-   * @fires context#cloneChild
-   */
-  render() {
-    if (!Array.isArray(this.props.children)) {
-      const child = this.props.children;
-      return (
-        <div
-          ref="field"
-          className={this.className}
-          style={this.style}>
-          {this.cloneChild(child)}
-        </div>
-      );
-    } else {
-      return (
-        <div
-          ref="field"
-          className={this.className}
-          style={this.style}>
-          {React.Children.map(this.props.children, this.cloneChild)}
-        </div>
-      );
-    }
-  }
+Field.propTypes = {
+  className: PropTypes.string,
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  label: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.bool
+  ]).isRequired,
+  name: PropTypes.string.isRequired,
+  style: PropTypes.object,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string
+  ])
 }
+
+Field.defaultProps = {
+  className: 'form-field', // What is the field className?
+  type: 'text', // What type of input field is it?
+  placeholder: null, // What is the input field placholder?
+  required: true, // Is the input field required?
+  disabled: false, // Is the field disabled?
+  label: true, // Is there a label for the field?
+  input: true, // Is there an input?
+  name: null, // What is the name of the field?
+  style: null // What is the style of the field?
+}
+
+export default Field;

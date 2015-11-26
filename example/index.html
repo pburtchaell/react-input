@@ -2,11 +2,9 @@
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
-<script async src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
-{% } %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<title>React Input</title>
+<title>React Input Example</title>
 <body>
+  <div id="mount"></div>
+  <script src="/app.js"></script>
 </body>
 </html>
