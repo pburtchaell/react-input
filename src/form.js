@@ -16,6 +16,7 @@ class Form extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
   }
 
   /**
@@ -73,7 +74,7 @@ class Form extends Component {
 
           return (
             <Field
-              key={`${Math.random()}-${caseSafeFieldName}`}
+              key={caseSafeFieldName}
               {...field}
               value={this.state[caseSafeFieldName]}
               onChange={value => {

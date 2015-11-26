@@ -9,7 +9,25 @@ class ExampleForm extends Component {
     this.state = {
       isPending: false,
       isRejected: false,
-      isFulfilled: false
+      isFulfilled: false,
+      fields: [
+        {
+          name: 'Email',
+          type: 'email',
+          error: false,
+          required: false,
+          placeholder: 'Enter an email'
+        },
+        {
+          name: 'Phone',
+          type: 'tel',
+          error: false,
+          label: false,
+          placeholder: 'Enter a phone',
+          defaultValue: '504-123-4567',
+          onChange: (value) => {}
+        }
+      ]
     };
   }
 
@@ -19,24 +37,7 @@ class ExampleForm extends Component {
         isPending={this.state.isPending}
         isFulfilled={this.state.isFulfilled}
         isRejected={this.state.isRejected}
-        fields={[
-          {
-            name: 'Email',
-            type: 'email',
-            error: false,
-            required: false,
-            placeholder: 'Enter an email'
-          },
-          {
-            name: 'Phone',
-            type: 'tel',
-            error: false,
-            label: false,
-            placeholder: 'Enter a phone',
-            defaultValue: '504-123-4567',
-            onChange: (value) => {}
-          }
-        ]}
+        fields={this.state.fields}
         ref={node => this.form = node}
         onChange={(state) => {}}
         onSubmit={(state) => {}}
