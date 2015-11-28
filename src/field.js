@@ -8,6 +8,7 @@ import Input from './input';
  */
 const Field = (props) => (
   <div className="form-field" style={props.style}>
+    {props.renderBefore ? props.renderBefore() : null}
     {props.label ? (
       <Label
         name={props.name}
@@ -18,6 +19,7 @@ const Field = (props) => (
         {...props}
       />
     ) : null}
+    {props.renderAfter ? props.renderAfter() : null}
   </div>
 );
 
