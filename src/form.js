@@ -68,6 +68,11 @@ class Form extends Component {
         onSubmit={this.handleSubmit}
         className={this.getClassName(this.props)}
       >
+        {this.props.error ? (
+          <div className="form-container-error">
+            {this.props.error}
+          </div>
+        ) : null}
         {this.props.fields.map(field => {
           const caseSafeFieldName = field.name.toLowerCase();
 
