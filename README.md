@@ -2,86 +2,84 @@
 
 ## Overview
 
-React input is a lightweight, dependency free component for building forms in React without having to think about what happens under the hood.
-
-Right now, only `textarea`, `password`, `email` and `text` inputs can be used, but it can be expanded to provide date pickers, checkboxes/switches, selection menus, and file inputs in the future.
+React input is a lightweight, dependency free component for building forms in React without having to think about what happens under the hood. It uses one component and an array of objects that describe the inputs in the form.
 
 ## Usage
 
 - Install the component via npm: `npm install react-input`
-- Require the form component
+- Require the Form component
 
 ```
-<form onSubmit={this.myFormSubmissionHandler}>
-  <Field ref="email" name="email">
-    <Label />
-    <Input
-      required
-      type="email"
-      placeholder="Name"
-    />
-  </Field>
-  <Submit />
-</form>
+<Form
+  fields={[
+    {
+      name: 'Email',
+      type: 'email',
+      error: false,
+      required: false, // Property to include on the input,
+      label: false, // Don't include a label
+      placeholder: 'Enter an email',
+      onChange: value => {
+        // handle a changed value on the input
+      },
+      renderAfter: () => (
+        <div>Include custom JSX after the input. This is useful for instructional text or strength meters for passwords</div>
+      ),
+      renderBefore: () => (
+        <div>Include custom JSX before the input</div>
+      )
+    },
+    // additional inputs to include in the form
+  ]}
+  onChange={state => /* handle form change */ }
+  onSubmit={state => /* handle form submit */ }
+/>
 ```
 
 For a detailed example, see [the example project](/example).
 
-### Props
+### Form Props
 
-All standard HTML input attributes are supported and can be used as props.
+| Name        | Type     | Description                                              | Required  | Default  |
+|-------------|----------|----------------------------------------------------------|---------- |----------|
+| fields      | array    | Array of inputs to include                               | true      |          |
+| isPending   | boolean  | If true, an `.is-pending` class is added to the form     |           | null     |
+| isRejected  | boolean  | If true, an `.is-rejected` class is added to the form    |           | null     |
+| isFulfilled | boolean  | If true, an `.is-fulfilled` class is added to the form   |           | null     |
 
-### Input Methods
+The `isPending`, `isRejected` and `isFulfilled` props are useful to add different styles to the form for different states.
 
-| Method  | Usage             |                                     |
-|-------- |-----------------  |------------------------------------ |
-| focus   | `Input.focus()`   | Sets the focus on the element.      |
-| value   | `Input.value()`   | Returns the value on the element.*  |
-| clear   | `Input.clear()`   | Clears the value on the element.    |
+### Form Events
 
-_*Note that you can also change the value of an input directly by `Input.value = 'newValue'_
+| Event     | Description                                                                                             |
+|---------  |---------------------------------------------------------------------------------------------------------|
+| onChange  | Runs when any input in the form changes. The first parameter is the state of the form after the change. |
+| onSubmit  | Runs when the submit button is clicked. The first parameter is the current state of the form.           |
 
-### Input Events
+### Input Props and Events
 
-| Event     | Description                                               |
-|---------  |---------------------------------------------------------  |
-| onChange  | Runs on change. Includes the name and value of the input. |
+Only text based inputs can be used, e.g., `email`, `text`, `tel` and `password`.
 
-Considering this component:
+#### Props
 
-```
-<Field ref="email" name="email">
-  <Input
-    type="email"
-    onChange={::this.handleInputChange}
-  />
-</Field>
-```
+| Name         | Type     | Description                     | Required  | Default  |
+|--------------|----------|---------------------------------|---------- |----------|
+| type         | string   | The type of input               |           |`'text'`  |
+| name         | string   | The name of input               |           |          |
+| label        | boolean  | Label for the input field       |           | true     |
+| error        | boolean  | Is the input in an error state? |           | false    |
+| renderAfter  | function | JSX to render after the input   |           |          |
+| renderBefore | function | JSX to render before the input  |           |          |
 
-An event handler might look like:
+#### Events
 
-```
-handleInputChange(value, field, event) {
-  return this.setState({
-    [field]: value
-  });
-}
-```
+| Event     | Description                                                                 |
+|---------  |-----------------------------------------------------------------------------|
+| onChange  | Runs when the value of the input changes. The first parameter is the value. |
 
-### DOM Tree
-
-As this component does not include CSS styles to use, you will need to add your own styles. If you are using inline styles, just include the `style` prop on each component.
-
-The default DOM tree of the component is included below for reference. You can also override the default classes by just using `className` like you would normally.
-
-```html
-<div class="input-group">
-  <label class="input-group-label"></label>
-  <input class="input-group-input">
-</div>
-```
+In addition to the props listed above, all standard HTML input attributes are supported and can be used as props on the inputs.
 
 ---
 Built with care in New Orleans by [Patrick Burtchaell](http://twitter.com/pburtchaell).
 
-Copyright 2015 Patrick Burtchaell. Licensed MIT.
+Copyright 2015-current Patrick Burtchaell. Licensed MIT.
