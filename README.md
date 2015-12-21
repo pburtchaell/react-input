@@ -16,8 +16,7 @@ React input is a lightweight, dependency free component for building forms in Re
       name: 'Email',
       type: 'email',
       error: false,
-      required: false, // Property to include on the input,
-      label: false, // Don't include a label
+      required: false,
       placeholder: 'Enter an email',
       onChange: value => {
         // handle a changed value on the input
