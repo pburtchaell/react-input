@@ -22,6 +22,7 @@ const Input = (props) => {
           className="input"
           onChange={handleChange}
         />
+        {props.renderInner ? props.renderInner() : null}
       )}
       {props.error ? (
         <span className="input-error">
