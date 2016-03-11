@@ -17,12 +17,14 @@ const Input = (props) => {
           onChange={handleChange}
         />
       ) : (
-        <input
-          {...props}
-          className="input"
-          onChange={handleChange}
-        />
-        {props.renderInner ? props.renderInner() : null}
+        <span>
+          <input
+            {...props}
+            className="input"
+            onChange={handleChange}
+          />
+          {props.renderInner ? props.renderInner() : null}
+        </span>
       )}
       {props.error ? (
         <span className="input-error">
