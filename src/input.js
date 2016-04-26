@@ -27,7 +27,7 @@ const Input = (props) => {
         </span>
       )}
       {props.type === 'textbox' ? (
-        {props.checkboxText}
+        <span>{props.checkboxText}</span>
       ) : null}
       {props.error ? (
         <span className="input-error">
