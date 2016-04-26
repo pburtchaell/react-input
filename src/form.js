@@ -89,7 +89,10 @@ class Form extends Component {
             />
           );
         })}
-        <Submit text={this.props.submitButtonText} />
+        <Submit
+          text={this.props.submitButtonText}
+          className={this.props.submitButtonClassName}
+        />
       </form>
     );
   }

@@ -26,6 +26,9 @@ const Input = (props) => {
           {props.renderInner ? props.renderInner() : null}
         </span>
       )}
+      {props.type === 'textbox' ? (
+        {props.checkboxText}
+      ) : null}
       {props.error ? (
         <span className="input-error">
           {props.error}
