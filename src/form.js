@@ -89,7 +89,7 @@ class Form extends Component {
             />
           );
         })}
-        <Submit />
+        <Submit text={this.props.submitButtonText} />
       </form>
     );
   }
@@ -97,7 +97,8 @@ class Form extends Component {
 
 Form.propTypes = {
   onChange: PropTypes.func,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  submitButtonText: PropTypes.string
 };
 
 Form.defaultProps = {

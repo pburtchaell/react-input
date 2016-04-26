@@ -10,12 +10,13 @@ const Submit = (props) => (
   <button
     {...props}
     type="submit"
-    children="Submit"
+    children={props.text}
   />
 );
 
 Submit.defaultProps = {
-  className: 'form-submit-button'
+  className: 'form-submit-button',
+  text: 'Submit'
 };
 
 export default Submit;
