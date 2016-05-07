@@ -20,15 +20,21 @@ const Input = (props) => {
         <span>
           <input
             {...props}
+            id={props.name}
             className="input"
             onChange={handleChange}
           />
+          {props.type === 'checkbox' ? (
+            <label
+              htmlFor={props.name}
+              className="input-checkbox-text"
+            >
+              {props.checkboxText}
+            </label>
+          ) : null}
           {props.renderInner ? props.renderInner() : null}
         </span>
       )}
-      {props.type === 'checkbox' ? (
-        <span className="input-checkbox-text">{props.checkboxText}</span>
-      ) : null}
       {props.error ? (
         <span className="input-error">
           {props.error}

@@ -26,6 +26,16 @@ class ExampleForm extends Component {
           placeholder: 'Enter a phone',
           defaultValue: '504-123-4567',
           onChange: (value) => {}
+        },
+        {
+          name: 'Phone2',
+          type: 'checkbox',
+          error: false,
+          label: false,
+          placeholder: '',
+          defaultValue: '',
+          checkboxText: 'Hi',
+          onChange: () => {}
         }
       ]
     };
