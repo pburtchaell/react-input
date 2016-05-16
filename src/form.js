@@ -27,7 +27,7 @@ class Form extends Component {
       .filter(field => field.defaultValue)
       .forEach(field => {
         return this.setState({
-          [field.name.toLowerCase()]: field.defaultValue
+          [field.key]: field.defaultValue
         })
       });
   }
@@ -73,26 +73,25 @@ class Form extends Component {
             {this.props.error}
           </div>
         ) : null}
-        {this.props.fields.map(field => {
-          const caseSafeFieldName = field.name.toLowerCase();
+        {this.props.fields.map(field => (
+          <Field
+            key={field.key}
+            label={this.props.labels}
+            {...field}
+            value={this.state[field.key]}
+            onChange={value => {
+              this.handleChange(field.key, value);
 
-          return (
-            <Field
-              key={caseSafeFieldName}
-              {...field}
-              value={this.state[caseSafeFieldName]}
-              onChange={value => {
-                this.handleChange(caseSafeFieldName, value);
-
-                if (field.onChange) field.onChange(value);
-              }}
-            />
-          );
-        })}
-        <Submit
-          text={this.props.submitButtonText}
-          className={this.props.submitButtonClassName}
-        />
+              if (field.onChange) field.onChange(value);
+            }}
+          />
+        ))}
+        {typeof this.props.onSubmit === 'function' ? (
+          <Submit
+            text={this.props.submitButtonText}
+            className={this.props.submitButtonClassName}
+          />
+        ) : null}
       </form>
     );
   }
@@ -100,11 +99,12 @@ class Form extends Component {
 
 Form.propTypes = {
   onChange: PropTypes.func,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   submitButtonText: PropTypes.string
 };
 
 Form.defaultProps = {
+  labels: true,
   fields: null,
   isPending: null,
   isRejected: null,

@@ -14,6 +14,7 @@ React input is a lightweight, dependency free component for building forms in Re
   fields={[
     {
       name: 'Email',
+      key: 'email',
       type: 'email',
       error: false,
       required: false,
@@ -42,6 +43,7 @@ For a detailed example, see [the example project](/example).
 | Name        | Type     | Description                                              | Required  | Default  |
 |-------------|----------|----------------------------------------------------------|---------- |----------|
 | fields      | array    | Array of inputs to include                               | true      |          |
+| labels      | boolean  | If false, labels are disabled                            |           | true     |
 | isPending   | boolean  | If true, an `.is-pending` class is added to the form     |           | null     |
 | isRejected  | boolean  | If true, an `.is-rejected` class is added to the form    |           | null     |
 | isFulfilled | boolean  | If true, an `.is-fulfilled` class is added to the form   |           | null     |
@@ -63,9 +65,11 @@ Only text based inputs can be used, e.g., `email`, `text`, `tel` and `password`.
 
 | Name         | Type     | Description                     | Required  | Default  |
 |--------------|----------|---------------------------------|---------- |----------|
+| key          | string   | Unique key for the field        | true      |          |
 | type         | string   | The type of input               |           |`'text'`  |
 | name         | string   | The name of input               |           |          |
 | label        | boolean  | Label for the input field       |           | true     |
+| required     | boolean  | Make field required             |           | true     |
 | error        | boolean  | Is the input in an error state? |           | false    |
 | renderAfter  | function | JSX to render after the input   |           |          |
 | renderBefore | function | JSX to render before the input  |           |          |

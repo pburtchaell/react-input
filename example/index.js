@@ -13,13 +13,13 @@ class ExampleForm extends Component {
       fields: [
         {
           name: 'Email',
+          key: 'email',
           type: 'email',
-          error: false,
-          required: false,
           placeholder: 'Enter an email'
         },
         {
-          name: 'Phone',
+          name: 'Phone 2',
+          key: 'phone2',
           type: 'tel',
           error: false,
           label: false,
@@ -28,7 +28,8 @@ class ExampleForm extends Component {
           onChange: (value) => {}
         },
         {
-          name: 'Phone2',
+          name: 'Phone',
+          key: 'phone',
           type: 'checkbox',
           error: false,
           label: false,
@@ -44,13 +45,14 @@ class ExampleForm extends Component {
   render() {
     return (
       <Form
+        fields={this.state.fields}
+        labels={false}
         isPending={this.state.isPending}
         isFulfilled={this.state.isFulfilled}
         isRejected={this.state.isRejected}
-        fields={this.state.fields}
         ref={node => this.form = node}
         onChange={(state) => {}}
-        onSubmit={(state) => {}}
+        onSubmit={(state) => console.log(state)}
       />
     );
   }
