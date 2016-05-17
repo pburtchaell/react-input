@@ -6,7 +6,7 @@ import Input from './input';
  * @class Field
  * @description A field in the form.
  */
-const Field = (props) => (
+const Field = props => (
   <div className="form-field" style={props.style}>
     {props.renderBefore ? props.renderBefore() : null}
     {props.label ? (
@@ -34,7 +34,7 @@ Field.propTypes = {
     PropTypes.array,
     PropTypes.bool
   ]).isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   style: PropTypes.object,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.oneOfType([
