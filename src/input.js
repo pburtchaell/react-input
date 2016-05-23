@@ -20,7 +20,7 @@ const Input = (props) => {
         <span>
           <input
             {...props}
-            id={props.name}
+            id={props.id}
             className="input"
             onChange={handleChange}
           />
