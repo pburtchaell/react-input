@@ -75,6 +75,7 @@ class Form extends Component {
         ) : null}
         {this.props.fields.map(field => (
           <Field
+            id={field.key}
             key={field.key}
             label={this.props.labels}
             {...field}
