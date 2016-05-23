@@ -21,12 +21,13 @@ const Input = (props) => {
           <input
             {...props}
             id={props.id}
+            name={props.id}
             className="input"
             onChange={handleChange}
           />
           {props.type === 'checkbox' ? (
             <label
-              htmlFor={props.name}
+              htmlFor={props.id}
               className="input-checkbox-text"
             >
               {props.checkboxText}
