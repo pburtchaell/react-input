@@ -16,6 +16,7 @@ class Form extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.updateDefaults = this.updateDefaults.bind(this);
   }
 
   /**
@@ -23,7 +24,15 @@ class Form extends Component {
    * the state with the value of that field.
    */
   componentWillMount() {
-    this.props.fields
+    this.updateDefaults(this.props.fields);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.updateDefaults(nextProps.fields);
+  }
+
+  updateDefaults(fields) {
+    fields
       .filter(field => field.defaultValue)
       .forEach(field => {
         return this.setState({
