@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/pburtchaell/react-input",
   "peerDependencies": {
-    "react": "0.14.x",
     "react-dom": "0.14.x"
+    "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.1.2",
