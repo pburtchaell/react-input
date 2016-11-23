@@ -114,11 +114,11 @@ Form.propTypes = {
 };
 
 Form.defaultProps = {
-  labels: true,
   fields: null,
+  isFulfilled: null,
   isPending: null,
   isRejected: null,
-  isFulfilled: null
-}
+  labels: true
+};
 
 export default Form;

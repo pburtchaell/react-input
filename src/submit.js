@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 /**
  * @function Submit
@@ -17,6 +17,11 @@ const Submit = (props) => (
 Submit.defaultProps = {
   className: 'form-submit-button',
   text: 'Submit'
+};
+
+Submit.propTypes = {
+  className: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
 };
 
 export default Submit;

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 /**
  * @function Input
@@ -46,7 +46,8 @@ const Input = (props) => {
 }
 
 Input.propTypes = {
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired
 };
 
 export default Input;

@@ -25,12 +25,10 @@ const Field = props => (
 
 
 Field.propTypes = {
-  id: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  type: PropTypes.string,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
+  className: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  input: PropTypes.bool,
   label: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.bool
@@ -41,19 +39,24 @@ Field.propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string
-  ])
-}
+  ]),
+  placeholder: PropTypes.string,
+  renderAfter: PropTypes.func,
+  renderBefore: PropTypes.func,
+  required: PropTypes.bool,
+  type: PropTypes.string
+};
 
 Field.defaultProps = {
   className: 'form-field', // What is the field className?
-  type: 'text', // What type of input field is it?
+  disabled: false, // Is the field disabled?
+  input: true, // Is there an input?
+  label: true, // Is there a label for the field?
+  name: null, // What is the name of the field?
   placeholder: null, // What is the input field placholder?
   required: true, // Is the input field required?
-  disabled: false, // Is the field disabled?
-  label: true, // Is there a label for the field?
-  input: true, // Is there an input?
-  name: null, // What is the name of the field?
-  style: null // What is the style of the field?
-}
+  style: null, // What is the style of the field?
+  type: 'text' // What type of input field is it?
+};
 
 export default Field;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 /**
  * @function Label
@@ -12,5 +12,9 @@ const Label = (props) => (
     {props.name}
   </label>
 );
+
+Label.propTypes = {
+  name: PropTypes.string.isRequired
+};
 
 export default Label;
