@@ -4,8 +4,11 @@
   "description": "Easy forms for React",
   "main": "dist/form.js",
   "scripts": {
-    "prepublish": "make js",
-    "test": "`npm bin`/babel-doctor",
+    "prepublish": "npm run build",
+    "prebuild": "npm test",
+    "build": "make js",
+    "test": "npm run lint",
+    "lint": "`npm bin`/eslint src/**/*.js test/**/*.js",
     "start": "NODE_ENV=development node server.js"
   },
   "repository": {
