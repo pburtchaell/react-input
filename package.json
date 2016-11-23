@@ -4,6 +4,7 @@
   "description": "Easy forms for React",
   "main": "dist/form.js",
   "scripts": {
+    "precommit": "echo 'Running pre-commit hooks...' && npm test",
     "prepublish": "npm run build",
     "prebuild": "npm test",
     "build": "make js",
@@ -11,6 +12,9 @@
     "lint": "`npm bin`/eslint src/**/*.js test/**/*.js",
     "start": "NODE_ENV=development node server.js"
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "repository": {
     "type": "git",
     "url": "https+git://github.com/pburtchaell/react-input.git"
@@ -51,6 +55,7 @@
     "express": "^4.13.3",
     "html-webpack-plugin": "^2.10.0",
     "morgan": "^1.6.1",
+    "pre-commit": "^1.1.3",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "webpack": "^1.12.3",
