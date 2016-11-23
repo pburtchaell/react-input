@@ -34,7 +34,6 @@ Field.propTypes = {
     PropTypes.bool
   ]).isRequired,
   name: PropTypes.string,
-  style: PropTypes.object,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.bool,
