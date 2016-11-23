@@ -1,6 +1,6 @@
 {
   "name": "react-input",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Easy forms for React",
   "main": "dist/form.js",
   "scripts": {
