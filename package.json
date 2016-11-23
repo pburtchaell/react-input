@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/pburtchaell/react-input",
   "peerDependencies": {
-    "react-dom": "0.14.x"
     "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
