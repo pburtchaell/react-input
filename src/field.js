@@ -7,7 +7,11 @@ import Input from './input';
  * @description A field in the form.
  */
 const Field = props => (
-  <div className="form-field" style={props.style} id={props.id}>
+  <div
+    className={props.className `field-${props.type}`}
+    style={props.style}
+    id={props.id}
+  >
     {props.renderBefore ? props.renderBefore() : null}
     {props.label ? (
       <Label

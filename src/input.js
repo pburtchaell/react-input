@@ -5,7 +5,7 @@ import React, { PropTypes } from 'react';
  * @description An input in a field.
  */
 const Input = (props) => {
-  const handleChange = (e) => props.onChange(e.target.value);
+  const handleChange = e => props.onChange(e.target.value);
 
   return (
     <span className="form-field-input">
@@ -43,7 +43,7 @@ const Input = (props) => {
       ) : null}
     </span>
   );
-}
+};
 
 Input.propTypes = {
   onChange: PropTypes.func.isRequired,

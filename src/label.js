@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react';
  * @function Label
  * @description A label for fields.
  */
-const Label = (props) => (
+const Label = props => (
   <label
     htmlFor={props.name}
     className="form-field-label"

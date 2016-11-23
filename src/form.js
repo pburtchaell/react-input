@@ -17,6 +17,7 @@ class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateDefaults = this.updateDefaults.bind(this);
+    this.getClassName = this.getClassName.bind(this);
   }
 
   /**
@@ -31,14 +32,28 @@ class Form extends Component {
     this.updateDefaults(nextProps.fields);
   }
 
+  getClassName() {
+    let className = this.props.className || 'form-container';
+
+    if (this.props.isPending) {
+      className += ' is-pending';
+    } else if (this.props.isFulfilled) {
+      className += ' is-fulfilled';
+    } else if (this.props.isRejected) {
+      className += ' is-rejected';
+    } else if (this.props.error) {
+      className += ' is-rejected';
+    }
+
+    return className;
+  }
+
   updateDefaults(fields) {
     fields
       .filter(field => field.defaultValue)
-      .forEach(field => {
-        return this.setState({
-          [field.key]: field.defaultValue
-        })
-      });
+      .forEach(field => this.setState({
+        [field.key]: field.defaultValue
+      }));
   }
 
   handleSubmit(event) {
@@ -55,27 +70,11 @@ class Form extends Component {
     });
   }
 
-  getClassName(props) {
-    let className = props.className || 'form-container';
-
-    if (props.isPending) {
-      className += ' is-pending';
-    } else if (props.isFulfilled) {
-      className += ' is-fulfilled';
-    } else if (props.isRejected) {
-      className += ' is-rejected';
-    } else if (props.error) {
-      className += ' is-rejected';
-    }
-
-    return className;
-  }
-
   render() {
     return (
       <form
         onSubmit={this.handleSubmit}
-        className={this.getClassName(this.props)}
+        className={this.getClassName()}
       >
         {this.props.error ? (
           <div className="form-container-error">
@@ -89,7 +88,7 @@ class Form extends Component {
             label={this.props.labels}
             {...field}
             value={this.state[field.key]}
-            onChange={value => {
+            onChange={(value) => {
               this.handleChange(field.key, value);
 
               if (field.onChange) field.onChange(value);

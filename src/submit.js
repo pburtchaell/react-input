@@ -6,12 +6,13 @@ import React, { PropTypes } from 'react';
  * is never really used by the consumer, but rather it is added
  * automatically.
  */
-const Submit = (props) => (
+const Submit = props => (
   <button
     {...props}
     type="submit"
-    children={props.text}
-  />
+  >
+    {props.text}
+  </button>
 );
 
 Submit.defaultProps = {
