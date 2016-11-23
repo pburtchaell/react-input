@@ -49,8 +49,8 @@
     "express": "^4.13.3",
     "html-webpack-plugin": "^1.4.0",
     "morgan": "^1.6.1",
-    "react": "0.14.x",
-    "react-dom": "0.14.x",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
     "webpack": "^1.12.3",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.4.1"
