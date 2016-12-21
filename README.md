@@ -1,4 +1,6 @@
-# react-input [![npm version](https://badge.fury.io/js/react-input.svg)](http://badge.fury.io/js/react-input) [![Dependency Status](https://david-dm.org/pburtchaell/react-classes.svg)](https://david-dm.org/pburtchaell/react-input)
+# React Input
+
+[![npm version](https://badge.fury.io/js/react-input.svg)](http://badge.fury.io/js/react-input) [![Build Status](https://travis-ci.org/pburtchaell/react-input.svg?branch=master)](https://travis-ci.org/pburtchaell/react-input) [![Coverage Status](https://coveralls.io/repos/github/pburtchaell/react-input/badge.svg)](https://coveralls.io/github/pburtchaell/react-input) [![npm downloads](https://img.shields.io/npm/dm/react-input.svg?style=flat)](https://www.npmjs.com/package/react-input)
 
 ## Overview
 
@@ -6,8 +8,7 @@ React input is a lightweight, dependency free component for building forms in Re
 
 ## Usage
 
-- Install the component via npm: `npm install react-input`
-- Require the Form component
+Install the component via npm: `npm install react-input`.
 
 ```
 <Form
@@ -23,10 +24,10 @@ React input is a lightweight, dependency free component for building forms in Re
         // handle a changed value on the input
       },
       renderAfter: () => (
-        <div>Include custom JSX after the input. This is useful for instructional text or strength meters for passwords</div>
+        <div>Include an element after the input, which is useful for instructional text or strength meters for passwords</div>
       ),
       renderBefore: () => (
-        <div>Include custom JSX before the input</div>
+        <div>Include an element before the input</div>
       )
     },
     // additional inputs to include in the form
@@ -57,11 +58,11 @@ The `isPending`, `isRejected` and `isFulfilled` props are useful to add differen
 | onChange  | Runs when any input in the form changes. The first parameter is the state of the form after the change. |
 | onSubmit  | Runs when the submit button is clicked. The first parameter is the current state of the form.           |
 
-### Input Props and Events
+### Input Properties and Events
 
 Only text based inputs can be used, e.g., `email`, `text`, `tel` and `password`.
 
-#### Props
+#### Properties
 
 | Name         | Type     | Description                     | Required  | Default  |
 |--------------|----------|---------------------------------|---------- |----------|
@@ -71,8 +72,8 @@ Only text based inputs can be used, e.g., `email`, `text`, `tel` and `password`.
 | label        | boolean  | Label for the input field       |           | true     |
 | required     | boolean  | Make field required             |           | true     |
 | error        | boolean  | Is the input in an error state? |           | false    |
-| renderAfter  | function | JSX to render after the input   |           |          |
-| renderBefore | function | JSX to render before the input  |           |          |
+| renderAfter  | function | Element to render after the input   |           |          |
+| renderBefore | function | Element to render before the input  |           |          |
 
 #### Events
 
@@ -83,6 +84,4 @@ Only text based inputs can be used, e.g., `email`, `text`, `tel` and `password`.
 In addition to the props listed above, all standard HTML input attributes are supported and can be used as props on the inputs.
 
 ---
-Built with care in New Orleans by [Patrick Burtchaell](http://twitter.com/pburtchaell).
-
-Copyright 2015-current Patrick Burtchaell. Licensed MIT.
+Copyright 2015 Patrick Burtchaell. Licensed MIT.
