@@ -1,0 +1,17 @@
+exports[`<Field /> should render a field 1`] = `
+<div
+  className="form-field field-text"
+  id="name">
+  <Label
+    name="First name" />
+  <Input
+    customClassName="form-field"
+    id="name"
+    input={true}
+    label={true}
+    name="First name"
+    onChange={[Function]}
+    required={true}
+    type="text" />
+</div>
+`;
