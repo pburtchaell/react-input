@@ -1,0 +1,7 @@
+exports[`<Label/> should render a label 1`] = `
+<label
+  className="form-field-label"
+  htmlFor="foo">
+  foo
+</label>
+`;

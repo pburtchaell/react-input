@@ -1,0 +1,22 @@
+exports[`<Input /> should render a text input element 1`] = `
+<span
+  className="form-field-input">
+  <span>
+    <input
+      className="input"
+      onChange={[Function]}
+      type="text" />
+  </span>
+</span>
+`;
+
+exports[`<Input /> should render an textarea element 1`] = `
+<span
+  className="form-field-input">
+  <textarea
+    className="input"
+    onChange={[Function]}
+    role="textbox"
+    type="textarea" />
+</span>
+`;

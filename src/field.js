@@ -8,7 +8,7 @@ import Input from './input';
  */
 const Field = props => (
   <div
-    className={props.className `field-${props.type}`}
+    className={`${props.customClassName} field-${props.type}`}
     style={props.style}
     id={props.id}
   >
@@ -27,9 +27,8 @@ const Field = props => (
   </div>
 );
 
-
 Field.propTypes = {
-  className: PropTypes.string.isRequired,
+  customClassName: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   input: PropTypes.bool,
@@ -51,14 +50,10 @@ Field.propTypes = {
 };
 
 Field.defaultProps = {
-  className: 'form-field', // What is the field className?
-  disabled: false, // Is the field disabled?
+  customClassName: 'form-field', // What is the field className?
   input: true, // Is there an input?
   label: true, // Is there a label for the field?
-  name: null, // What is the name of the field?
-  placeholder: null, // What is the input field placholder?
   required: true, // Is the input field required?
-  style: null, // What is the style of the field?
   type: 'text' // What type of input field is it?
 };
 

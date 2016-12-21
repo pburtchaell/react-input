@@ -1,0 +1,18 @@
+exports[`<Form /> should render an textarea element 1`] = `
+<form
+  className="form-container"
+  onSubmit={[Function]}>
+  <Field
+    customClassName="form-field"
+    id="email"
+    input={true}
+    label={true}
+    name="Email"
+    onChange={[Function]}
+    required={true}
+    type="email" />
+  <Submit
+    className="form-submit-button"
+    text="Submit" />
+</form>
+`;
