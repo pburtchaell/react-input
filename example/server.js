@@ -9,9 +9,6 @@ var address = config.devAddress;
 var app = express();
 var compiler = webpack(config);
 
-// Logging
-app.use(require('morgan')('short'));
-
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
@@ -24,7 +21,7 @@ app.use(require('webpack-hot-middleware')(compiler, {
 }));
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'example/index.html'));
+  res.sendFile(path.join(__dirname, './index.html'));
 });
 
 app.listen(port, address, function (error) {

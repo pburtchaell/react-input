@@ -12,7 +12,7 @@
     "test": "./bin/test.sh",
     "test-watch": "`npm bin`/jest --watch",
     "lint": "`npm bin`/eslint src/**/*.js test/**/*.js",
-    "start": "NODE_ENV=development node server.js"
+    "start": "NODE_ENV=development node ./example/server.js"
   },
   "pre-commit": [
     "precommit"

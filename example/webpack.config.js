@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     app: [
       'webpack-hot-middleware/client',
-      path.resolve(__dirname, './example/index')
+      path.resolve(__dirname, './index')
     ],
   },
   resolve: {
@@ -33,5 +33,10 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
+  },
+  resolve: {
+    alias: {
+      'react-input': path.join(__dirname, '..', 'src', 'form')
+    }
   }
 };
