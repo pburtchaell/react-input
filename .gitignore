@@ -1,5 +1,8 @@
 node_modules/
-_gh_pages/
 dist/
+coverage/
+.coverage
+.coveralls.yml
+.idea/
 *.log
 .DS_Store
