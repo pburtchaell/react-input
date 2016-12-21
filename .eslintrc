@@ -1,5 +1,6 @@
 {
   "extends": "eslint-config-airbnb",
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
@@ -18,7 +19,7 @@
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/jsx-boolean-value": 0,
-    "react/react-in-jsx-scope": 2,
+    "react/react-in-jsx-scope": 0,
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
     "react/no-unused-prop-types": 0,
@@ -36,6 +37,6 @@
     "spy": true,
     "shallow": true,
     "mount": true,
-    "jsdom": true
+    "TYPES"
   }
 }
