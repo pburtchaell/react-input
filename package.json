@@ -7,7 +7,7 @@
     "precommit": "echo 'Running pre-commit hooks...' && npm test",
     "prepublish": "npm run build",
     "prebuild": "npm test",
-    "build": "`npm bin`/babel src -d dist",
+    "build": "`npm bin`/babel src -d dist --ignore spec.js, test.js",
     "pretest": "npm run lint",
     "test": "./bin/test.sh",
     "test-watch": "`npm bin`/jest --watch",
