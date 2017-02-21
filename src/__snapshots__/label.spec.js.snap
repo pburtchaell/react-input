@@ -1,7 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Label/> should render a label 1`] = `
 <label
   className="form-field-label"
-  htmlFor="foo">
+  htmlFor="foo"
+>
   foo
 </label>
 `;

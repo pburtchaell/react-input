@@ -1,7 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Form /> should render an textarea element 1`] = `
 <form
   className="form-container"
-  onSubmit={[Function]}>
+  onSubmit={[Function]}
+>
   <Field
     customClassName="form-field"
     id="email"
@@ -10,9 +13,11 @@ exports[`<Form /> should render an textarea element 1`] = `
     name="Email"
     onChange={[Function]}
     required={true}
-    type="email" />
+    type="email"
+  />
   <Submit
     className="form-submit-button"
-    text="Submit" />
+    text="Submit"
+  />
 </form>
 `;

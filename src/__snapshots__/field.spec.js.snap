@@ -1,9 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Field /> should render a field 1`] = `
 <div
   className="form-field field-text"
-  id="name">
+  id="name"
+>
   <Label
-    name="First name" />
+    name="First name"
+  />
   <Input
     customClassName="form-field"
     id="name"
@@ -12,6 +16,7 @@ exports[`<Field /> should render a field 1`] = `
     name="First name"
     onChange={[Function]}
     required={true}
-    type="text" />
+    type="text"
+  />
 </div>
 `;
