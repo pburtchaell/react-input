@@ -4,13 +4,13 @@
 # Param 1: the reporter to use, defaults to spec
 runTests()
 {
-  `npm bin`/jest
+  node_modules/.bin/jest
 }
 
 # Description: run tests with coverage
 runCoverageTests()
 {
-  `npm bin`/jest --coverage
+  node_modules/.bin/jest --coverage
 }
 
 # If on Travis, run tests with Istanbul

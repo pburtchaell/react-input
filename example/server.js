@@ -3,9 +3,6 @@ var express = require('express');
 var webpack = require('webpack');
 var config = require('./webpack.config');
 
-var port = process.env.PORT || config.devPort;
-var address = config.devAddress;
-
 var app = express();
 var compiler = webpack(config);
 
@@ -24,8 +21,8 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
-app.listen(port, address, function (error) {
+app.listen(8000, function (error) {
   if (error) throw error;
 
-  console.log('server running at http://%s:%d', address, port);
+  console.log('Server running at http://localhost:8000.');
 });

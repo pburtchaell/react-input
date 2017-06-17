@@ -3,8 +3,6 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
-  devPort: 8000,
-  devAddress: '0.0.0.0',
   cache: true,
   entry: {
     app: [
@@ -23,16 +21,16 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
         loader: 'babel-loader'
       }
-    ]
+    }]
   },
   resolve: {
     alias: {
