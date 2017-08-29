@@ -1,5 +1,7 @@
 # React Input
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pburtchaell/react-input.svg)](https://greenkeeper.io/)
+
 [![npm version](https://badge.fury.io/js/react-input.svg)](http://badge.fury.io/js/react-input) [![Build Status](https://travis-ci.org/pburtchaell/react-input.svg?branch=master)](https://travis-ci.org/pburtchaell/react-input) [![Coverage Status](https://coveralls.io/repos/github/pburtchaell/react-input/badge.svg)](https://coveralls.io/github/pburtchaell/react-input) [![npm downloads](https://img.shields.io/npm/dm/react-input.svg?style=flat)](https://www.npmjs.com/package/react-input)
 
 ## Overview
