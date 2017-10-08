@@ -1,7 +1,7 @@
 {
   "name": "react-input",
   "version": "4.1.4",
-  "description": "Easy forms for React",
+  "description": "A single parent component for building forms in React",
   "main": "dist/form.js",
   "scripts": {
     "precommit": "echo 'Running pre-commit hooks...' && npm test",
