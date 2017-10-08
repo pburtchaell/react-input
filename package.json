@@ -5,12 +5,12 @@
   "main": "dist/form.js",
   "scripts": {
     "precommit": "echo 'Running pre-commit hooks...' && npm test",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "prebuild": "npm test",
     "build": "node_modules/.bin/babel src -d dist --ignore spec.js,test.js",
     "pretest": "npm run lint",
     "test": "./bin/test.sh",
-    "test-watch": "node_modules/.bin/jest --watch",
+    "test-watch": "`npm bin`/jest --watch",
     "lint": "node_modules/.bin/eslint src/**/*.js test/**/*.js",
     "start": "NODE_ENV=development node ./example/server.js"
   },
