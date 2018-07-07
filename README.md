@@ -18,7 +18,7 @@ React input is a lightweight, dependency free component for building forms in Re
 
 Install the component via npm: `npm install react-input`.
 
-```
+```js
 <Form
   fields={[
     {
