@@ -1,6 +1,14 @@
 # React Input
 
-[![npm version](https://badge.fury.io/js/react-input.svg)](http://badge.fury.io/js/react-input) [![Build Status](https://travis-ci.org/pburtchaell/react-input.svg?branch=master)](https://travis-ci.org/pburtchaell/react-input) [![Coverage Status](https://coveralls.io/repos/github/pburtchaell/react-input/badge.svg)](https://coveralls.io/github/pburtchaell/react-input) [![npm downloads](https://img.shields.io/npm/dm/react-input.svg?style=flat)](https://www.npmjs.com/package/react-input)
+## Warning
+
+As of 2018 July 7, this project is depreciated and unmaintained. The package is still available on npm, but I would suggest finding an alternative.
+
+Good alternatives include:
+- [formik](https://github.com/jaredpalmer/formik)
+- [formsy-react](https://github.com/christianalfoni/formsy-react)
+- [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form)
+- [react-component/forms](https://github.com/react-component/form)
 
 ## Overview
 
